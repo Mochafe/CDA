@@ -3,12 +3,12 @@ CREATE DATABASE Exercice2;
 USE Exercice2;
 
 CREATE TABLE Station(
-    num_station INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+    num_station INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nom_station VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Hotel(
-    num_hotel INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+    num_hotel INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     sta_hotel INT NOT NULL, #Numero de station
     nom_hotel VARCHAR(50) NOT NULL,
     adr_hotel VARCHAR(50) NOT NULL, #Adresse
@@ -19,7 +19,7 @@ CREATE TABLE Hotel(
 );
 
 CREATE TABLE Chambre(
-    num_chambre INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+    num_chambre INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     hot_chambre INT NOT NULL, #Numero hotel
     typ_chambre VARCHAR(50), #Type de chambre
     cap_chambre INT NOT NULL, #Capacité
@@ -30,7 +30,7 @@ CREATE TABLE Chambre(
 );
 
 CREATE TABLE Client(
-    num_client INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+    num_client INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nom_client VARCHAR(50) NOT NULL, #Nom
     pre_client VARCHAR(50) NOT NULL, #Prénom
     adr_client VARCHAR(50) #Adresse

@@ -5,7 +5,7 @@ CREATE DATABASE Exercice1;
 USE Exercice1;
 
 CREATE TABLE Personne(
-    per_num INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+    per_num INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     per_nom VARCHAR(50),
     per_prenom VARCHAR(50),
     per_adresse VARCHAR(50),
@@ -13,7 +13,7 @@ CREATE TABLE Personne(
 );
 
 CREATE TABLE Groupe(
-    gro_num INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL,
+    gro_num INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     gro_libelle VARCHAR(50)
 );
 
