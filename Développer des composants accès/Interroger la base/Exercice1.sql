@@ -140,5 +140,6 @@ SELECT nom, UPPER(nom), LOWER(nom)
 FROM employe
 WHERE nom = 'Vrante';
 
+#32
 SELECT nom, LENGTH(nom) as 'Nombre de caractères'
 FROM employe;
