@@ -34,6 +34,7 @@ CREATE TABLE vente(
     numfou VARCHAR(25) NOT NULL,
     codart CHAR(4) NOT NULL,
 
+    PRIMARY KEY(codart, numfou),
     FOREIGN KEY (numfou) REFERENCES fournis(numfou),
     FOREIGN KEY (codart) REFERENCES produit(codart)
 );
@@ -42,13 +43,13 @@ CREATE TABLE entcom(
     numcom INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     obscom VARCHAR(50),
     datcom DATE DEFAULT now() NOT NULL,
-    foucom VARCHAR(25),
+    numfou VARCHAR(25),
 
-    FOREIGN KEY (foucom) REFERENCES fournis(numfou)
+    FOREIGN KEY (numfou) REFERENCES fournis(numfou)
 );
 
 CREATE TABLE ligcom(
-    numlig TINYINT(3) PRIMARY KEY NOT NULL,
+    numlig TINYINT(3) NOT NULL,
     qtecde INT NOT NULL,
     priuni VARCHAR(50) NOT NULL,
     qteliv INT,
@@ -56,8 +57,9 @@ CREATE TABLE ligcom(
     numcom INT NOT NULL,
     codart CHAR(4) NOT NULL,
 
+    PRIMARY KEY (numlig, numcom),
     FOREIGN KEY (numcom) REFERENCES entcom(numcom),
     FOREIGN KEY (codart) REFERENCES produit(codart)
 );
 
-CREATE INDEX FK_numfou ON entcom(foucom);
+CREATE INDEX FK_numfou ON entcom(numfou);
