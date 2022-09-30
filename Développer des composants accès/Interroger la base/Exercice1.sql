@@ -58,17 +58,17 @@ WHERE salaire >= 20000 AND salaire <= 30000;
 #15
 SELECT nom
 FROM employe
-WHERE nom REGEXP '%h';
+WHERE nom LIKE 'h%';
 
 #16
 SELECT nom
 FROM employe
-WHERE nom REGEXP 'n%';
+WHERE nom LIKE '%n';
 
 #17
 SELECT nom
 FROM employe
-WHERE nom REGEXP '__u';
+WHERE nom LIKE '__u%';
 
 #18
 SELECT salaire, nom
