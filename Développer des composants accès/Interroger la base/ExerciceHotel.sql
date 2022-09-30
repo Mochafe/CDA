@@ -94,5 +94,11 @@ JOIN chambre ON reservation.res_cha_id = chambre.cha_id
 JOIN hotel ON chambre.cha_hot_id = hotel.hot_id
 WHERE cli_nom = 'Squire';
 
-
-SELECT
+#17
+SELECT sta_nom, DATEDIFF(AVG(res_date_fin), AVG(res_date_debut)) AS 'Durée moyenne(jours)'
+FROM station
+LEFT JOIN hotel ON station.sta_id = hotel.hot_sta_id
+JOIN chambre ON hotel.hot_id = chambre.cha_hot_id
+JOIN reservation ON chambre.cha_id = reservation.res_cha_id
+GROUP BY sta_nom
+;
