@@ -78,10 +78,10 @@ GROUP BY nodep
 HAVING COUNT(nodep) > 2;
 
 #13
-SELECT CONCAT(SUBSTRING(nom, 1, 1),SUBSTRING(nom, 1, 1)) AS 'Initial', COUNT(CONCAT(SUBSTRING(nom, 1, 1),SUBSTRING(nom, 1, 1))) AS 'Compteur'
+SELECT CONCAT(LEFT(nom, 1),LEFT(prenom, 1)) AS 'Initial', COUNT(CONCAT(LEFT(nom, 1),LEFT(prenom, 1))) AS 'Compteur'
 FROM employe
-GROUP BY CONCAT(SUBSTRING(nom, 1, 1),SUBSTRING(nom, 1, 1))
-HAVING COUNT(CONCAT(SUBSTRING(nom, 1, 1),SUBSTRING(nom, 1, 1))) >= 3;
+GROUP BY CONCAT(LEFT(nom, 1),LEFT(prenom, 1))
+HAVING COUNT(CONCAT(LEFT(nom, 1),LEFT(prenom, 1))) >= 3;
 
 #14
 SELECT MAX(salaire) AS 'Salaire Max', MIN(salaire) AS 'Salaire Min', (MAX(salaire) - MIN(salaire)) AS 'Différence'
