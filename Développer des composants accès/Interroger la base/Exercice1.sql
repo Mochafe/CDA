@@ -133,7 +133,8 @@ FROM employe;
 
 #30
 SELECT nom, LOCATE('r', nom)
-FROM employe;
+FROM employe
+HAVING LOCATE('r', nom) != 0;
 
 #31
 SELECT nom, UPPER(nom), LOWER(nom)
