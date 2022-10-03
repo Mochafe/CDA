@@ -1,0 +1,3 @@
+Pour assurer la cohérence des données
+
+Les requête qui on pour but de modifier la table sont freeze et la table ne sera pas modifier après la transaction;

@@ -1,0 +1,10 @@
+La transaction n'est pas terminé.
+
+L'utilisateur est freeze jusqu'a ce que sa requête UPDATE fonctionne donc les données ne sont pas modifiable pendant la transaction mais l'est après.
+Ce qui fait qu'un utilisateur peut instantanément réecrire les valeurs que l'on vient de modifier.
+
+Non, La transaction n'est pas terminé.
+
+Pour valider la modification il suffit de faire COMMIT;
+
+Pour annuler la transaction il faut faire ROLLBACK;
