@@ -97,7 +97,48 @@ WHERE fournis.numfou = (SELECT numfou FROM entcom WHERE numcom = 70210);
 SELECT libart, prix1
 FROM produit
 JOIN vente ON produit.codart = vente.codart
-WHERE prix1 < (SELECT MIN(prix1) FROM vente WHERE LEFT(codart, 1) = 'R' )
-;
+WHERE prix1 < (SELECT MIN(prix1) FROM vente WHERE LEFT(codart, 1) = 'R' );
 
+#15
+SELECT nomfou, libart, (qtecde - qteliv) as 'Reste a livré'
+FROM fournis
+JOIN entcom ON fournis.numfou = entcom.numfou
+JOIN ligcom ON entcom.numcom = ligcom.numcom
+JOIN produit ON ligcom.codart = produit.codart
+WHERE qteliv < qtecde AND stkphy <= (stkale * 1.5)
+ORDER BY libart ASC, nomfou ASC;
 
+#16
+SELECT nomfou, libart, (qtecde - qteliv) as 'Reste a livré'
+FROM fournis
+JOIN entcom ON fournis.numfou = entcom.numfou
+JOIN ligcom ON entcom.numcom = ligcom.numcom
+JOIN produit ON ligcom.codart = produit.codart
+JOIN vente ON produit.codart = vente.codart
+WHERE qteliv < qtecde AND stkphy <= (stkale * 1.5) AND delliv <= 30
+ORDER BY libart ASC, nomfou ASC;
+
+#17
+SELECT nomfou, SUM(stkphy) as 'Stock total'
+FROM produit
+JOIN vente ON produit.codart = vente.codart
+JOIN fournis ON vente.numfou = fournis.numfou
+GROUP BY nomfou
+ORDER BY SUM(stkphy) DESC;
+
+#18
+SELECT libart, qteann, SUM(qtecde)
+FROM produit
+JOIN ligcom ON produit.codart = ligcom.codart
+GROUP BY libart
+HAVING SUM(qtecde) > (qteann * 1.9);
+
+#19
+SELECT nomfou, (SUM(qtecde * prix1) * 1.2) as 'Prix TTC'
+FROM fournis
+JOIN vente ON fournis.numfou = vente.numfou
+JOIN produit ON vente.codart = produit.codart
+JOIN ligcom ON produit.codart = ligcom.codart
+JOIN entcom ON ligcom.numcom = entcom.numcom
+WHERE YEAR(datcom) = '1993'
+GROUP BY nomfou;
