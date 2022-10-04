@@ -34,7 +34,7 @@ CREATE TABLE vente(
     numfou VARCHAR(25) NOT NULL,
     codart CHAR(4) NOT NULL,
 
-    PRIMARY KEY(codart, numfou),
+    PRIMARY KEY(numfou, codart),
     FOREIGN KEY (numfou) REFERENCES fournis(numfou),
     FOREIGN KEY (codart) REFERENCES produit(codart)
 );

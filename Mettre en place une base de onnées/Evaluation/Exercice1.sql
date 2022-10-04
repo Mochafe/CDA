@@ -31,7 +31,7 @@ CREATE TABLE est_compose(
 
     FOREIGN KEY(com_num) REFERENCES commande(com_num),
     FOREIGN KEY(pro_num) REFERENCES produit(pro_num),
-    PRIMARY KEY(com_num,pro_num)
+    PRIMARY KEY(com_num, pro_num)
 );
 
 CREATE INDEX IX_cli_nom ON client(cli_nom);
