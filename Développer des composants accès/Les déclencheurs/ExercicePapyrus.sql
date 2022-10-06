@@ -5,18 +5,30 @@ CREATE TABLE ARTICLES_A_COMMANDER(
     qte INT
 );
 
+DELIMITER |
 CREATE TRIGGER article_commander 
 AFTER UPDATE ON produit
     FOR EACH ROW
     BEGIN
-        IF (SELECT stkphy FROM produit WHERE codart = NEW.codart) <= (SELECT stkale FROM produit WHERE codart = NEW.codart)
-        THEN
-            INSERT INTO ARTICLES_A_COMMANDER(codart, qte) VALUES (NEW.codart,  ((NEW.stkale - NEW.stkphy)) - (SELECT SUM(qte) from ARTICLES_A_COMMANDER as a WHERE a.codart = NEW.codart));
+    DECLARE sume INT;
+    SET sume = (SELECT SUM(qte) from ARTICLES_A_COMMANDER as a WHERE a.codart = NEW.codart);
+        IF NEW.stkphy <= NEW.stkale THEN
+            IF sume IS NULL THEN
+                SET sume = 0;
+            END IF;         
+            INSERT INTO ARTICLES_A_COMMANDER(codart, qte) VALUES (NEW.codart,  NEW.stkale - NEW.stkphy - sume);  
         END IF;
-    END;
+    END|
+
+DELIMITER ;
 
 DROP TRIGGER article_commander;
 
 UPDATE produit
-SET stkphy = 11
+SET stkphy = 15
 WHERE codart = 'B001';
+
+
+SELECT 
+(stkale - stkphy) - (SELECT ( CASE SUM(qte)
+                            ) FROM `ARTICLES_A_COMMANDER` WHERE codart = 'B001')  from produit as a WHERE a.codart = 'B001';
