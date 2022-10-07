@@ -66,5 +66,5 @@ JOIN orders On customers.CustomerID = orders.CustomerID
 WHERE CompanyName = 'Du monde entier';
 
 #10
-SELECT ROUND(AVG(DATEDIFF(ShippedDate, OrderDate))) AS 'Délai moyen de livraison en jours's
+SELECT ROUND(AVG(DATEDIFF(ShippedDate, OrderDate))) AS 'Délai moyen de livraison en jours'
 FROM orders;
