@@ -1,9 +1,12 @@
--- Active: 1665374967481@@127.0.0.1@3306@northwind
+-- Active: 1664278796352@@127.0.0.1@3306@northwind
 
+ALTER TABLE `order details` ENGINE=InnoDB;
 DELIMITER |
 
 CREATE TRIGGER customers_suppliers_country AFTER INSERT 
-ON `order details` FOR EACH ROW BEGIN 
+ON `order details` 
+FOR EACH ROW 
+BEGIN 
 	IF (
 	    SELECT DISTINCT orders.ShipCountry
 	    FROM `order details`
@@ -18,9 +21,8 @@ ON `order details` FOR EACH ROW BEGIN
 	        JOIN suppliers ON products.SupplierID = suppliers.SupplierID
 	    WHERE
 	        orders.OrderID = NEW.OrderID AND products.ProductId = NEW.ProductID
-	) THEN SIGNAL SQLSTATE '40000'
-	SET
-	    MESSAGE_TEXT = 'Il y a au moins 1 produit qui ne provient pas d\'un pays étranger';
+	) THEN 
+	SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = "Il y a au moins 1 produit qui ne provient pas d'un pays étranger";
 	END IF;
 	END | 
 DELIMITER ;
@@ -42,4 +44,4 @@ SELECT DISTINCT orders.ShipCountry
         WHERE orders.OrderID = 10248;
 
 INSERT INTO `order details`(OrderID, ProductID, UnitPrice, Quantity, Discount)
-VALUES (10248, 39, 12.0000, 1, 0);
+VALUES (10248, 35, 12.0000, 1, 0);
