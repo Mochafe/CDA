@@ -46,3 +46,8 @@ Un sprint est composé de stories, les stories sont des objectifs, à chaque spr
 
 ## TDD :(Test Driven Development), recherchez des informations pour expliquer le principe.
 
+On ne doit pas écrire de code de production tant qu’on n’a pas écrit un test unitaire qui échoue.
+
+On ne doit pas écrire plus d'un seul test unitaire qui échoue, et ne pas compiler revient à échouer.
+
+On ne doit pas écrire plus de code de production que nécessaire pour que le test unitaire actuellement en échec réussisse.
