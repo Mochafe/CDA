@@ -1,8 +1,8 @@
--- Active: 1665374967481@@127.0.0.1@3306@northwind
+-- Active: 1664278796352@@127.0.0.1@3306@northwind
 
 DELIMITER |
 
-CREATE PROCEDURE lastcommand(In name VARCHAR(40))
+CREATE PROCEDURE lastCommand(In name VARCHAR(40))
 BEGIN
     SELECT MAX(OrderDate) AS 'Date de dernière commande'
     FROM customers
@@ -12,9 +12,16 @@ END |
 
 DELIMITER ;
 
-CALL lastcommand('Around the horn');
+CALL lastCommand('Around the horn');
 
-#2
-SELECT ROUND(AVG(DATEDIFF(ShippedDate, OrderDate))) AS 'Délai moyen de livraison en jours'
-FROM orders;
---Je ne voit pas comment l'adapter car nous fesont une requête qui implique toute la table
+DELIMITER |
+
+
+CREATE PROCEDURE deliveryAverage()
+BEGIN
+    SELECT ROUND(AVG(DATEDIFF(ShippedDate, OrderDate))) AS 'Délai moyen de livraison en jours' FROM orders;
+END |
+
+DELIMITER ;
+
+CALL deliveryAverage();
