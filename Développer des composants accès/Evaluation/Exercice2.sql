@@ -1,4 +1,4 @@
--- Active: 1664278796352@@127.0.0.1@3306@northwind
+-- Active: 1665374967481@@127.0.0.1@3306@northwind
 
 DELIMITER |
 
@@ -14,6 +14,7 @@ DELIMITER ;
 
 CALL lastcommand('Around the horn');
 
-
+#2
 SELECT ROUND(AVG(DATEDIFF(ShippedDate, OrderDate))) AS 'Délai moyen de livraison en jours'
 FROM orders;
+--Je ne voit pas comment l'adapter car nous fesont une requête qui implique toute la table
