@@ -1,0 +1,36 @@
+{
+    "projects": [
+        {
+            "name": "PostIt",
+            "description": "Un site où l'on peut créer/modifier/supprimer des Post-It, rendu côté client en récupérant les informations en faisant des appelle à mon API.",
+            "languages": [
+                "HTML",
+                "CSS",
+                "Javascript",
+                "NodeJS",
+                "ExpressJS",
+                "Sequelize",
+                "VueJS"
+            ],
+            "github": "https://github.com/Mochafe/PostIt"
+        },
+        {
+            "name": "Automate Cellulaire",
+            "description": "Une petite application qui utilise des automates cellulaire pour effectuer une simulation basique de l'eau.",
+            "languages": [
+                "C++",
+                "SFML"
+            ],
+            "github": "https://github.com/Mochafe/Cellular-Automata-WIP-"
+        },
+        {
+            "name": "State Machine pour Unity",
+            "description": "Un système de state machine sur Unity",
+            "languages": [
+                "C#",
+                "Unity"
+            ],
+            "github": "https://github.com/Mochafe/State-Machine-for-Unity"
+        }
+    ]
+}

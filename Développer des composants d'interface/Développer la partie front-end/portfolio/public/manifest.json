@@ -1,0 +1,20 @@
+{
+  "short_name": "Florian Pasquet",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "300x219",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "FLORIAN_PASQUET.png",
+      "type": "image/png",
+      "sizes": "300x219"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
