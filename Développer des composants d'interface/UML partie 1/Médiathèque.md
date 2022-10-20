@@ -2,7 +2,7 @@
 ## Description
 <br>
 
-Ce cas d'utilisation permet de saisir les information concernant l'emprunt d'un document par un client
+Ce cas d'utilisation permet de saisir les information concernant l'emprunt d'un document par un usager
 
 <br>
 
@@ -18,7 +18,17 @@ Ce cas d'utilisation permet de saisir les information concernant l'emprunt d'un 
 
 Seul un employe ou un bénévole peut opérer cette saisie.
 
-Le client doit déjà être répertorié.
+Les bénévoles n’ont accès à l’enregistrement des emprunts que sur une période déterminée.
+
+L'usager a payé sa cotisation et n'a pas plus de 5 emprunts en cours.
+
+Enregistrement de nouveaux usagers ou de nouveaux documents sont effectués uniquement par le personnel.
+
+L'usage doit possèder une carte de lecteur.
+
+Tout emprunt de CD-Rom nécessite une caution.
+
+Tout emprunt de microfilm nécessite un écran libre.
 
 Ce cas d'utilisation n'est disponible que pendant la journée aux heures d'ouverture de l'établissement.
 
@@ -105,6 +115,47 @@ Le sustème a détecté qu'une ou plusieurs informations saisies concernant le c
 
 - Le système annule le prêt s'il a été enregistré.
 - Le cas d'utilisation prend fin.
+
+<br>
+
+### <ins>L'usager ne possede pas de carte de lecteur</ins>
+
+<br>
+
+- Le cas d'utilisation prend fin.
+
+<br>
+
+### <ins>L'usager n'a pas payé sa cotisation</ins>
+
+<br>
+
+- Le cas d'utilisation prend fin.
+
+<br>
+
+### <ins>L'usager a plus de 5 emprunts en cours</ins>
+
+<br>
+
+- Le cas d'utilisation prend fin.
+
+<br>
+
+### <ins>Le document emprunté est un CD-ROM</ins>
+
+<br>
+
+- Demande d'une caution.
+- Le cas d'utilisation continue normalement.
+
+<br>
+
+### <ins>Le document emprunté est un microfilm</ins>
+
+<br>
+
+- Si un écran est libre l'emprunt est enregistrer sinon le cas d'utilisation prend fin.
 
 <br>
 

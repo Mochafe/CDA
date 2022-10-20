@@ -17,9 +17,7 @@ export default function Works() {
         // const games = await response.json();
 
         const response = await axios.get("/api");
-        console.log(response);
         setGames(response.data.result);
-        console.log(games);
     }
 
     const [games, setGames] = useState([]);
