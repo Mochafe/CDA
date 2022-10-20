@@ -20,11 +20,11 @@ Seul un employe ou un bénévole peut opérer cette saisie.
 
 Les bénévoles n’ont accès à l’enregistrement des emprunts que sur une période déterminée.
 
-L'usager a payé sa cotisation et n'a pas plus de 5 emprunts en cours.
+L\'usager a payé sa cotisation et n'a pas plus de 5 emprunts en cours.
 
 Enregistrement de nouveaux usagers ou de nouveaux documents sont effectués uniquement par le personnel.
 
-L'usage doit possèder une carte de lecteur.
+L\'usage doit possèder une carte de lecteur.
 
 Tout emprunt de CD-Rom nécessite une caution.
 
