@@ -31,6 +31,14 @@
                 "Unity"
             ],
             "github": "https://github.com/Mochafe/State-Machine-for-Unity"
+        },
+        {
+            "name": "DoctrineUML",
+            "description": "Une extension Visual Code pour générer l'UML a partir des entités Doctrine",
+            "languages": [
+                "Typescript"
+            ],
+            "github": "https://github.com/Mochafe/DoctrineUML"
         }
     ]
 }
